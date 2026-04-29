@@ -1,1 +1,86 @@
+/* --- Reset e Bases --- */
+:root {
+    --bg-color: #f4f7f6;
+    --text-main: #333;
+    --text-light: #777;
+    --white: #ffffff;
+    
+    /* Cores Pastéis de Categoria */
+    --pastel-blue: #AED9E0;
+    --pastel-green: #B9FBC0;
+    --pastel-yellow: #FAF0CA;
+    --pastel-pink: #FFD6BA;
+    --pastel-purple: #D9BBF9;
+    --pastel-grey: #E0E0E0;
+    
+    /* Cores de Ação */
+    --action-green: #2ecc71;
+    --action-red: #e74c3c;
+}
 
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+body { background-color: var(--bg-color); color: var(--text-main); padding: 10px; min-height: 100vh; }
+
+.app-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+
+/* --- Header --- */
+header { text-align: center; padding: 10px; border-bottom: 2px solid #e0e0e0; }
+.logo { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.puzzle-icon { font-size: 2rem; color: #4a90e2; }
+h1 { font-size: 2.2rem; color: #4a90e2; position: relative; }
+.pro-badge { font-size: 0.8rem; background: var(--pastel-purple); color: #5e35b1; padding: 2px 6px; border-radius: 10px; position: absolute; top: 0; right: -40px; }
+.tagline { color: var(--text-light); font-size: 0.9rem; }
+
+/* --- Barra de Frases --- */
+.phrase-bar-container { background: var(--white); padding: 10px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; gap: 10px; align-items: center; border: 2px solid #ddd; }
+.phrase-bar { flex-grow: 1; min-height: 80px; background: #fafafa; border-radius: 10px; border: 1px inset #eee; display: flex; align-items: center; padding: 10px; gap: 10px; overflow-x: auto; /* Scroll horizontal se a frase for longa */ }
+.placeholder-text { color: #bbb; font-style: italic; width: 100%; text-align: center; }
+
+/* Cards pequenos dentro da barra de frase */
+.phrase-card { width: 60px; height: 60px; background: white; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px solid; padding: 2px; }
+.phrase-card .emoji { font-size: 2rem; }
+.phrase-card p { font-size: 0.7rem; font-weight: bold; text-align: center; }
+
+.btn-speak, .btn-clear { border: none; border-radius: 10px; cursor: pointer; color: white; transition: background 0.2s; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+.btn-speak { width: 80px; height: 80px; background-color: var(--action-green); }
+.btn-speak:hover { background-color: #27ae60; }
+.btn-clear { width: 50px; height: 50px; background-color: var(--action-red); font-size: 1.2rem;}
+.btn-clear:hover { background-color: #c0392b; }
+
+/* --- Layout Principal --- */
+.main-layout { display: grid; grid-template-columns: 250px 1fr; gap: 20px; }
+
+/* --- Menu de Categorias --- */
+.category-menu { background: var(--white); padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.category-menu h3 { margin-bottom: 15px; color: var(--text-light); border-bottom: 2px solid var(--pastel-grey); padding-bottom: 5px; }
+#category-list { display: flex; flex-direction: column; gap: 10px; }
+
+.category-btn { background: none; border: 2px solid transparent; padding: 12px; border-radius: 10px; cursor: pointer; text-align: left; font-size: 1.1rem; font-weight: bold; color: #555; transition: all 0.2s; display: flex; align-items: center; gap: 10px; }
+.category-btn:hover { background-color: #f0f0f0; }
+.category-btn.active { border-color: #4a90e2; background-color: #e6f0fa; color: #4a90e2; }
+
+/* Cores dos botões de categoria */
+.cat-estruturante { border-left: 5px solid var(--pastel-blue); }
+.cat-alimentacao { border-left: 5px solid var(--pastel-green); }
+.cat-rotina { border-left: 5px solid var(--pastel-yellow); }
+.cat-sentimentos { border-left: 5px solid var(--pastel-pink); }
+
+/* --- Prancha de Comunicação --- */
+.board-container { background: var(--white); padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.communication-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
+
+/* Cards da Prancha (Dinâmicos) */
+.card { background: var(--white); border-radius: 15px; padding: 20px; text-align: center; cursor: pointer; transition: transform 0.1s, box-shadow 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.03); display: flex; flex-direction: column; align-items: center; justify-content: center; border: 3px solid var(--pastel-grey); /* Cor padrão */ }
+.card:active { transform: scale(0.96); } /* Feedback tátil ao clicar */
+.card:hover { box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+
+.card .emoji { font-size: 4rem; margin-bottom: 10px; }
+.card p { font-weight: bold; color: #333; font-size: 1.2rem; }
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .category-menu { order: 2; } /* Menu vai para baixo no celular */
+    .board-container { order: 1; }
+}

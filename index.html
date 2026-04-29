@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Kids Pro - Sistema CAA Dinâmico</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
 
+    <div class="app-container">
+        
+        <header>
+            <div class="logo">
+                <span class="puzzle-icon">🧩</span>
+                <h1>Eco Kids <span class="pro-badge">PRO</span></h1>
+            </div>
+            <p class="tagline">Comunicação Aumentativa Dinâmica</p>
+        </header>
+
+        <section class="phrase-bar-container">
+            <div id="phrase-bar" class="phrase-bar">
+                <p class="placeholder-text">Sua frase aparecerá aqui...</p>
+            </div>
+            <button id="btn-speak-phrase" class="btn-speak" title="Falar frase completa">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <button id="btn-clear-phrase" class="btn-clear" title="Apagar frase">
+                <i class="fas fa-backspace"></i>
+            </button>
+        </section>
+
+        <main class="main-layout">
+            <nav class="category-menu">
+                <h3>Categorias</h3>
+                <div id="category-list">
+                    </div>
+            </nav>
+
+            <section class="board-container">
+                <div id="communication-board" class="communication-board">
+                    </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
